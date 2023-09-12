@@ -1,0 +1,19 @@
+def bayes_theorem(prior_prob, likelihood, evidence):
+    """
+    Calculate the posterior probability using Bayes' theorem.
+    
+    :param prior_prob: The prior probability P(A).
+    :param likelihood: The likelihood P(B|A).
+    :param evidence: The evidence probability P(B).
+    :return: The posterior probability P(A|B).
+    """
+    posterior_prob = (prior_prob * likelihood) / evidence
+    return posterior_prob
+
+# Example usage
+prior_probability = 0.3  # P(A)
+likelihood_probability = 0.7  # P(B|A)
+evidence_probability = 0.5  # P(B)
+
+posterior_probability = bayes_theorem(prior_probability, likelihood_probability, evidence_probability)
+print(f"Posterior Probability: {posterior_probability}")
