@@ -1,0 +1,24 @@
+# Define prior probability: P(Disease)
+prior_probability_disease = 0.01  # 1% chance of having the disease
+
+# Define conditional probabilities: P(Positive Test | Disease) and P(Negative Test | No Disease)
+probability_positive_given_disease = 0.95  # 95% true positive rate
+probability_negative_given_no_disease = 0.90  # 90% true negative rate
+
+# Calculate the complement probabilities for P(Negative Test | Disease) and P(Positive Test | No Disease)
+probability_negative_given_disease = 1 - probability_positive_given_disease
+probability_positive_given_no_disease = 1 - probability_negative_given_no_disease
+
+# Define the evidence: P(Positive Test)
+# Use the law of total probability to calculate it based on the prior and conditional probabilities
+evidence = (prior_probability_disease * probability_positive_given_disease) + ((1 - prior_probability_disease) * (1 - probability_negative_given_no_disease))
+
+# Apply Bayes' theorem to calculate the posterior probability: P(Disease | Positive Test)
+posterior_probability_disease = (prior_probability_disease * probability_positive_given_disease) / evidence
+
+# Print the results
+print(f"P(Disease | Positive Test) = {posterior_probability_disease:.4f}")
+
+# Calculate and print the complementary probability: P(No Disease | Positive Test)
+posterior_probability_no_disease = 1 - posterior_probability_disease
+print(f"P(No Disease | Positive Test) = {posterior_probability_no_disease:.4f}")
