@@ -1,0 +1,21 @@
+# Define the prior probability of event A (P(A))
+prior_probability_A = 0.01  # Example: 1% chance of a positive test result without the condition
+
+# Define the probability of event B given event A (P(B|A))
+probability_B_given_A = 0.95  # Example: 95% chance of a positive test result if you have the condition
+
+# Define the probability of event B given not A (P(B|¬A))
+probability_B_given_not_A = 0.02  # Example: 2% chance of a positive test result if you don't have the condition
+
+# Calculate the marginal probability of event B (P(B))
+marginal_probability_B = (prior_probability_A * probability_B_given_A) + ((1 - prior_probability_A) * probability_B_given_not_A)
+
+# Calculate the posterior probability of event A given event B using Bayesian theorem
+posterior_probability_A_given_B = (prior_probability_A * probability_B_given_A) / marginal_probability_B
+
+# Print the results
+print(f"Prior Probability of A (P(A)): {prior_probability_A}")
+print(f"Probability of B given A (P(B|A)): {probability_B_given_A}")
+print(f"Probability of B given not A (P(B|¬A)): {probability_B_given_not_A}")
+print(f"Marginal Probability of B (P(B)): {marginal_probability_B}")
+print(f"Posterior Probability of A given B (P(A|B)): {posterior_probability_A_given_B:.4f}")
